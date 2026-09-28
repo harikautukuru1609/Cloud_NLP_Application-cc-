@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud-Based NLP Application</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #eeeeee;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Cloud-Based NLP Application</h1>
+
+    <form method="POST">
+
+        <textarea
+            name="text"
+            placeholder="Enter your text here..."
+            required>{{ text }}</textarea>
+
+        <button type="submit">
+            Analyze Sentiment
+        </button>
+
+    </form>
+
+    {% if result %}
+
+    <div class="result">
+
+        <h2>Result</h2>
+
+        <p>
+            <strong>Sentiment:</strong>
+            {{ result.sentiment }}
+        </p>
+
+        <p>
+            <strong>Positive:</strong>
+            {{ result.positive }}
+        </p>
+
+        <p>
+            <strong>Negative:</strong>
+            {{ result.negative }}
+        </p>
+
+        <p>
+            <strong>Neutral:</strong>
+            {{ result.neutral }}
+        </p>
+
+        <p>
+            <strong>Compound Score:</strong>
+            {{ result.compound }}
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
